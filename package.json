@@ -1,6 +1,6 @@
 {
-  "name": "hubot-google-images",
-  "description": "A hubot script that interacts with the Google Images API.",
+  "name": "hubot-google-images-pb",
+  "description": "A hubot script that interacts with the Google Images API, with some special cusotmizations for my peeps.",
   "version": "0.2.7",
   "author": "Josh Nichols <technicalpickles@github.com>",
   "license": "MIT",
@@ -10,10 +10,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/hubot-scripts/hubot-google-images.git"
+    "url": "git://github.com/dx-pbuckley/hubot-google-images.git"
   },
   "bugs": {
-    "url": "https://github.com/hubot-scripts/hubot-google-images/issues"
+    "url": "https://github.com/dx-pbuckley/hubot-google-images/issues"
   },
   "peerDependencies": {
     "hubot": ">=2 <10 || 0.0.0-development"

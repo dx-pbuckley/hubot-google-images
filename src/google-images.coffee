@@ -24,6 +24,18 @@ module.exports = (robot) ->
     imageMe msg, msg.match[2], true, (url) ->
       msg.send url
 
+  robot.respond /sake( it to me)?/i, (msg) ->
+    imageMe msg, 'dapple dachshund', (url) ->
+      msg.send url
+
+  robot.respond /sake bomb( me)?/i, (msg) ->
+    imageMe msg, 'dapple dachshund', (url) ->
+      msg.send url
+    imageMe msg, 'dapple dachshund', (url) ->
+      msg.send url
+    imageMe msg, 'dapple dachshund', (url) ->
+      msg.send url
+
   # pro feature, not added to docs since you can't conditionally document commands
   if process.env.HUBOT_GOOGLE_IMAGES_HEAR?
     robot.hear /^(image|img) me (.+)/i, (msg) ->
