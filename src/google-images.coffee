@@ -14,6 +14,8 @@
 #   hubot animate me <query> - The same thing as `image me`, except adds a few parameters to try to return an animated GIF instead.
 #   hubot mustache me <url|query> - Adds a mustache to the specified URL or query result.
 
+sakeDogUsers = process.env["HUBOT_SAKE_DOG_USERS"].split(',') || ['None']
+
 module.exports = (robot) ->
 
   robot.respond /(image|img)( me)? (.+)/i, (msg) ->
@@ -24,16 +26,24 @@ module.exports = (robot) ->
     imageMe msg, msg.match[2], true, (url) ->
       msg.send url
 
-  robot.respond /sake( it to me)?/i, (msg) ->
-    imageMe msg, 'dapple dachshund', (url) ->
+  robot.respond /sake( it to)? me/i, (msg) ->
+    if msg.envelope.user.name in sakeDogUsers
+      sakeString = 'dapple dachshund'
+    else
+      sakeString = 'sake'
+    imageMe msg, sakeString, (url) ->
       msg.send url
 
   robot.respond /sake bomb( me)?/i, (msg) ->
-    imageMe msg, 'dapple dachshund', (url) ->
+    if msg.envelope.user.name in sakeDogUsers
+      sakeString = 'dapple dachshund'
+    else
+      sakeString = 'sake'
+    imageMe msg, sakeString, (url) ->
       msg.send url
-    imageMe msg, 'dapple dachshund', (url) ->
+    imageMe msg, sakeString, (url) ->
       msg.send url
-    imageMe msg, 'dapple dachshund', (url) ->
+    imageMe msg, sakeString, (url) ->
       msg.send url
 
   # pro feature, not added to docs since you can't conditionally document commands
