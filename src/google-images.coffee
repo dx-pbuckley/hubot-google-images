@@ -14,7 +14,7 @@
 #   hubot animate me <query> - The same thing as `image me`, except adds a few parameters to try to return an animated GIF instead.
 #   hubot mustache me <url|query> - Adds a mustache to the specified URL or query result.
 
-sakeDogUsers = process.env["HUBOT_SAKE_DOG_USERS"].split(',') || ['None']
+sakeDogUsers = process.env["HUBOT_SAKE_DOG_USERS"] || ['None']
 
 module.exports = (robot) ->
 
@@ -27,7 +27,7 @@ module.exports = (robot) ->
       msg.send url
 
   robot.respond /sake( it to)? me/i, (msg) ->
-    if msg.envelope.user.name in sakeDogUsers
+    if msg.envelope.user.name in sakeDogUsers.split(',')
       sakeString = 'dapple dachshund'
     else
       sakeString = 'sake'
@@ -35,7 +35,7 @@ module.exports = (robot) ->
       msg.send url
 
   robot.respond /sake bomb( me)?/i, (msg) ->
-    if msg.envelope.user.name in sakeDogUsers
+    if msg.envelope.user.name in sakeDogUsers.split(',')
       sakeString = 'dapple dachshund'
     else
       sakeString = 'sake'
